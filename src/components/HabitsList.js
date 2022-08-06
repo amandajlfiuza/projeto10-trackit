@@ -17,7 +17,7 @@ export default function HabitsList({screen}) {
         <>
             {habitsList.length == 0 && screen === "Habits" 
                 ? <AlertText text="Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a trackear!" /> 
-                : habitsList.map(habit => <Habit key={habit.id} screen={screen} name={habit.name} days={habit.days} />)
+                : habitsList.map(habit => <Habit key={habit.id} screen={screen} id={habit.id} name={habit.name} days={habit.days} />)
             }
         </>
     )

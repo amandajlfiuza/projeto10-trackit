@@ -35,10 +35,9 @@ export default function Login() {
 
         postSignUp(body).then(() => {
             navigate("/");
-        });
-
-        postSignUp(body).catch(() => {
-            alert("Ops! Houve um erro, tente novamente.");
+        })
+        .catch((error) => {
+            alert(error.response.data.message);
             setIsDisabled(false);
         });
     }

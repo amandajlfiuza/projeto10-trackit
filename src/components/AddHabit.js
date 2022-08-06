@@ -39,8 +39,9 @@ export default function AddHabit() {
                     {day: 7, weekday:'S', selected:false},
                   ]);
                 setIsDisabled(false);
-            }).catch(() => {
-                alert("Por favor, defina um título para o seu hábito.");
+            })
+            .catch((error) => {
+                alert(error.response.data.message);
                 setIsDisabled(false);
             });
 

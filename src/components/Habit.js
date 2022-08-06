@@ -7,12 +7,29 @@ import {HabitContainer,
         Sequence,
         Record, 
         CheckIcon} from "../styles/HabitContainer";
+import { deleteHabit, getHabits } from "../api/API";
+import { useContext } from "react";
+import UserContext from "../contexts/UserContext";
 
-export default function Habit({screen, name, days}) {
+export default function Habit({screen, id, name, days}) {
+
+    const { token, setHabitsList } = useContext(UserContext);
+
+    function deleteThis() {
+        const response = window.confirm("Deseja mesmo apagar este hábito?");
+        if (response === true) {
+            deleteHabit(id, token).then(() => {
+                getHabits(token).then((resp) => {
+                    setHabitsList(resp.data);
+                });
+            });
+        }
+    }
+
     return (
         <HabitContainer>
             <HabitName>{name}</HabitName>
-            <Dump src='./assets/Dump.svg' screen={screen}></Dump>
+            <Dump src='./assets/Dump.svg' screen={screen} onClick={deleteThis}></Dump>
             {screen === "Habits" ? <DisplayWeekdays days={days} container={screen} /> : ''}
             <CurrentSequence>
                 <Subtitle screen={screen}>Sequência atual: </Subtitle>

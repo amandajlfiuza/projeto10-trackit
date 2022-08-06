@@ -31,14 +31,12 @@ export default function Login() {
             setToken({
                 headers: {
                     Authorization: `Bearer ${resp.data.token}`
-                }
-            });
+                }});
             setImage(resp.data.image);
             navigate("/hoje");
-        });
-
-        postLogin(body).catch(() => {
-            alert("Ops! Houve um erro, tente novamente.");
+        })
+        .catch((error) => {
+            alert(error.response.data.message);
             setIsDisabled(false);
         })
     }
