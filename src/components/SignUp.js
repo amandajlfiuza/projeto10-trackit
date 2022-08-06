@@ -12,7 +12,7 @@ export default function Login() {
         photo: ''
       });
     const navigate = useNavigate();
-    const [disabled, setDisabled] = useState(false);
+    const [isDisabled, setIsDisabled] = useState(false);
 
     function handleForm(e) {
         setFormSignUp({
@@ -31,10 +31,15 @@ export default function Login() {
 
         e.preventDefault();
 
-        setDisabled(true);
+        setIsDisabled(true);
 
         postSignUp(body).then(() => {
             navigate("/");
+        });
+
+        postSignUp(body).catch(() => {
+            alert("Ops! Houve um erro, tente novamente.");
+            setIsDisabled(false);
         });
     }
 
@@ -47,32 +52,32 @@ export default function Login() {
                         name="email" 
                         type="email" 
                         placeholder="email" 
-                        value={formSignUp.email} 
+                        value={formSignUp.email} required
                         onChange={handleForm}
-                        isDisabled={disabled}></Input>
+                        disabled={isDisabled}></Input>
                     <Input 
                         name="password" 
                         type="password" 
                         placeholder="senha" 
-                        value={formSignUp.password} 
+                        value={formSignUp.password} required
                         onChange={handleForm}
-                        isDisabled={disabled}></Input>
+                        disabled={isDisabled}></Input>
                     <Input 
                         name="userName" 
                         type="text" 
                         placeholder="nome" 
-                        value={formSignUp.userName} 
+                        value={formSignUp.userName} required
                         onChange={handleForm}
-                        isDisabled={disabled}></Input>
+                        disabled={isDisabled}></Input>
                     <Input 
                         name="photo" 
                         type="url" 
                         placeholder="foto" 
-                        value={formSignUp.photo} 
+                        value={formSignUp.photo} required
                         onChange={handleForm}
-                        isDisabled={disabled}></Input>
+                        disabled={isDisabled}></Input>
                     <button type="submit">
-                            {disabled ? <ThreeDots color='white' height={13} width={51} /> : 'Entrar'}
+                            {isDisabled ? <ThreeDots color='white' height={13} width={51} /> : 'Cadastrar'}
                     </button>
                 </Forms>
                 <Link to="/">

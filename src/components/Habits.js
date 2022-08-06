@@ -1,7 +1,6 @@
 import Navbar from './Navbar';
 import ContainerTitle from './ContainerTitle';
 import AddHabit from './AddHabit';
-import AlertText from './AlertText';
 import HabitsList from './HabitsList';
 import Menu from './Menu';
 
@@ -11,10 +10,9 @@ export default function Habits() {
     return (
         <Wrapper>
             <Navbar />
-            <ContainerTitle />
+            <ContainerTitle screen="Habits" title="Meus hábitos" />
             <AddHabit />
-            <AlertText />
-            <HabitsList />
+            <HabitsList screen="Habits" />
             <Menu />
         </Wrapper>
     )

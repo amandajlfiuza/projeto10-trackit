@@ -9,7 +9,7 @@ export default function Today() {
     return (
         <Wrapper>
             <Navbar />
-            <ContainerTitle />
+            <ContainerTitle screen="History" title="Histórico" />
             <AlertText />
             <Menu />
         </Wrapper>

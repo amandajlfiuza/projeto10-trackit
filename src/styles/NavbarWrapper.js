@@ -12,6 +12,7 @@ const NavbarWrapper = styled.div`
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 3;
 `;
 
 const LogoIcon = styled.img`

@@ -9,8 +9,8 @@ export default function Today() {
     return (
         <Wrapper>
             <Navbar />
-            <ContainerTitle />
-            <HabitsList />
+            <ContainerTitle screen="Today" />
+            <HabitsList screen="Today" />
             <Menu />
         </Wrapper>
     )

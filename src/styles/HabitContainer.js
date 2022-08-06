@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 const HabitContainer = styled.div`
     width: 100%;
-    height: 94px;
     padding: 15px;
     margin-bottom: 10px;
     border-radius: 5px;
@@ -21,6 +20,14 @@ const Dump = styled.img`
     position: absolute;
     right: 15px;
     top: 15px;
+
+    ${props => {
+        if (props.screen !== "Habits") {
+            return `
+            display: none;
+            `
+        }
+    }}
 `;
 
 const CurrentSequence = styled.div`
@@ -30,11 +37,27 @@ const CurrentSequence = styled.div`
 const Subtitle = styled.span`
     color: #666666;
     font-size: 13px;
+
+    ${props => {
+        if (props.screen !== "Today") {
+            return `
+            display: none;
+            `
+        }
+    }}
 `;
 
 const Sequence = styled.span`
     color: #666666;
     font-size: 13px;
+
+    ${props => {
+        if (props.screen !== "Today") {
+            return `
+            display: none;
+            `
+        }
+    }}
 `;
 
 const Record = styled.div`
@@ -53,6 +76,14 @@ const CheckIcon = styled.div`
     position: absolute;
     top: 15px;
     right: 15px;
+
+    ${props => {
+        if (props.screen !== "Today") {
+            return `
+            display: none;
+            `
+        }
+    }}
 `;
 
 export {HabitContainer, HabitName, Dump, CurrentSequence, Subtitle, Sequence, Record, CheckIcon};

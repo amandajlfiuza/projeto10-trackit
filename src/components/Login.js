@@ -8,7 +8,7 @@ import { ThreeDots } from 'react-loader-spinner';
 export default function Login() {
     const {form, setForm, setToken, setImage} = useContext(UserContext);
     const navigate = useNavigate();
-    const [disabled, setDisabled] = useState(false);
+    const [isDisabled, setIsDisabled] = useState(false);
 
     function handleForm(e) {
         setForm({
@@ -25,13 +25,22 @@ export default function Login() {
 
         e.preventDefault();
 
-        setDisabled(true);
+        setIsDisabled(true);
 
         postLogin(body).then((resp) => {
-            setToken(resp.data.token);
+            setToken({
+                headers: {
+                    Authorization: `Bearer ${resp.data.token}`
+                }
+            });
             setImage(resp.data.image);
             navigate("/hoje");
         });
+
+        postLogin(body).catch(() => {
+            alert("Ops! Houve um erro, tente novamente.");
+            setIsDisabled(false);
+        })
     }
 
     return (
@@ -43,18 +52,18 @@ export default function Login() {
                         name="email" 
                         type="email" 
                         placeholder="email" 
-                        value={form.email}
+                        value={form.email} required
                         onChange={handleForm}
-                        isDisabled={disabled}></Input>
+                        disabled={isDisabled}></Input>
                     <Input 
                         name="password" 
                         type="password" 
                         placeholder="senha" 
-                        value={form.password}
+                        value={form.password} required
                         onChange={handleForm}
-                        isDisabled={disabled}></Input>
+                        disabled={isDisabled}></Input>
                     <button type="submit">
-                        {disabled ? <ThreeDots color='white' height={13} width={51} /> : 'Entrar'}
+                        {isDisabled ? <ThreeDots color='white' height={13} width={51} /> : 'Entrar'}
                     </button>
                 </Forms>
                 <Link to="/cadastro">

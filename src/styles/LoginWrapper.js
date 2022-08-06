@@ -14,6 +14,10 @@ const LoginWrapper = styled.div`
     margin: 68px auto 0px auto;
     display: flex;
     flex-direction: column;
+
+    a {
+        margin: 0 auto;
+    }
 `;
 
 const Logo = styled.img`
@@ -52,18 +56,16 @@ const Input = styled.input`
     border: 1px solid #D4D4D4;
     display: flex;
     align-items: center;
-    background-color: ${props => props.isDisabled ? '#F2F2F2' : 'white'};
+    background-color: ${props => props.disabled ? '#F2F2F2' : 'white'};
 
     &::placeholder {
-        color: ${props => props.isDisabled ? '#AFAFAF' : '#DBDBDB'};
+        color: ${props => props.disabled ? '#AFAFAF' : '#DBDBDB'};
         font-weight: 400;
         font-size: 20px;
     }
 `;
 
 const ButtonLogin = styled.button`
-    width: 100%;
-    margin: 0 auto 0 auto;
     background-color: white;
     box-shadow: none;
     border: none;

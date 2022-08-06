@@ -1,7 +1,7 @@
 import Text from '../styles/Text';
 
-export default function AlertText() {
+export default function AlertText({text}) {
     return (
-        <Text></Text>
+        <Text>{text}</Text>
     )
 }

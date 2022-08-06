@@ -8,21 +8,21 @@ import {HabitContainer,
         Record, 
         CheckIcon} from "../styles/HabitContainer";
 
-export default function Habit() {
+export default function Habit({screen, name, days}) {
     return (
         <HabitContainer>
-            <HabitName>Ler 1 capítulo de livro</HabitName>
-            <Dump src='./assets/Dump.svg'></Dump>
-            <Weekdays />
+            <HabitName>{name}</HabitName>
+            <Dump src='./assets/Dump.svg' screen={screen}></Dump>
+            {screen === "Habits" ? <Weekdays days={days} container={screen} /> : ''}
             <CurrentSequence>
-                <Subtitle>Sequência atual: </Subtitle>
-                <Sequence>3 dias</Sequence>
+                <Subtitle screen={screen}>Sequência atual: </Subtitle>
+                <Sequence screen={screen}>3 dias</Sequence>
             </CurrentSequence>
             <Record>
-                <Subtitle>Seu recorde: </Subtitle>
-                <Sequence>5 dias</Sequence>
+                <Subtitle screen={screen}>Seu recorde: </Subtitle>
+                <Sequence screen={screen}>5 dias</Sequence>
             </Record>
-            <CheckIcon>
+            <CheckIcon screen={screen}>
                 <img src='./assets/CheckIcon.svg' />
             </CheckIcon>
         </HabitContainer>
