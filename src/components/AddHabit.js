@@ -1,4 +1,4 @@
-import Weekdays from './Weekdays';
+import AddWeekdays from './AddWeekdays';
 import { HabitContainer } from '../styles/HabitContainer';
 import { HabitInput, Buttons, CancelButton, SaveButton } from '../styles/FormsAddHabit';
 import { useContext, useEffect, useState } from 'react';
@@ -30,13 +30,13 @@ export default function AddHabit() {
                 });
                 setAddHabit({name: '', days: []});
                 setDaysSelected([
-                    {day: 1, selected:false},
-                    {day: 2, selected:false},
-                    {day: 3, selected:false},
-                    {day: 4, selected:false},
-                    {day: 5, selected:false},
-                    {day: 6, selected:false},
-                    {day: 7, selected:false},
+                    {day: 1, weekday:'D', selected:false},
+                    {day: 2, weekday:'S', selected:false},
+                    {day: 3, weekday:'T', selected:false},
+                    {day: 4, weekday:'Q', selected:false},
+                    {day: 5, weekday:'Q', selected:false},
+                    {day: 6, weekday:'S', selected:false},
+                    {day: 7, weekday:'S', selected:false},
                   ]);
                 setIsDisabled(false);
             }).catch(() => {
@@ -65,7 +65,7 @@ export default function AddHabit() {
                 placeholder='nome do hábito'
                 onChange={handleName}
                 disabled={isDisabled}></HabitInput>
-            <Weekdays container="AddHabit" />
+            <AddWeekdays container="AddHabit" />
             <Buttons>
                 <CancelButton onClick={cancelHabit}>Cancelar</CancelButton>
                 <SaveButton onClick={submitHabit}>

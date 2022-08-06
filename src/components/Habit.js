@@ -1,4 +1,4 @@
-import Weekdays from "./Weekdays";
+import DisplayWeekdays from "./DisplayWeekdays";
 import {HabitContainer, 
         HabitName, 
         Dump, 
@@ -13,7 +13,7 @@ export default function Habit({screen, name, days}) {
         <HabitContainer>
             <HabitName>{name}</HabitName>
             <Dump src='./assets/Dump.svg' screen={screen}></Dump>
-            {screen === "Habits" ? <Weekdays days={days} container={screen} /> : ''}
+            {screen === "Habits" ? <DisplayWeekdays days={days} container={screen} /> : ''}
             <CurrentSequence>
                 <Subtitle screen={screen}>Sequência atual: </Subtitle>
                 <Sequence screen={screen}>3 dias</Sequence>

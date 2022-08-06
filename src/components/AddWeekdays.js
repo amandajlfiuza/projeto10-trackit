@@ -42,12 +42,18 @@ function Weekday({dayId, weekday, container}) {
     )
 }
 
-export default function Weekdays({container}) {
+export default function AddWeekdays({container}) {
     const { daysSelected } = useContext(UserContext);
 
     return (
         <WeekdaysWrapper>
-            {daysSelected.map((value, index) => <Weekday key={index} dayId={value.day} weekday={value.weekday} container={container} />)}
+            {daysSelected.map((value, index) => 
+                (<Weekday 
+                    key={index} 
+                    dayId={value.day} 
+                    weekday={value.weekday} 
+                    container={container}
+                />))}
         </WeekdaysWrapper>
     )
 }
