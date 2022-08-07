@@ -1,5 +1,5 @@
 import ContainerTitle from './ContainerTitle';
-import HabitsList from './HabitsList';
+import HabitsToday from './HabitsToday';
 import Menu from './Menu';
 import Navbar from './Navbar';
 
@@ -10,7 +10,7 @@ export default function Today() {
         <Wrapper>
             <Navbar />
             <ContainerTitle screen="Today" />
-            <HabitsList screen="Today" />
+            <HabitsToday screen="Today" />
             <Menu />
         </Wrapper>
     )

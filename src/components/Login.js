@@ -60,7 +60,7 @@ export default function Login() {
                         value={form.password} required
                         onChange={handleForm}
                         disabled={isDisabled}></Input>
-                    <button type="submit">
+                    <button type="submit" disabled={isDisabled}>
                         {isDisabled ? <ThreeDots color='white' height={13} width={51} /> : 'Entrar'}
                     </button>
                 </Forms>

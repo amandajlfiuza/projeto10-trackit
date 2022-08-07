@@ -10,7 +10,7 @@ export default function Today() {
         <Wrapper>
             <Navbar />
             <ContainerTitle screen="History" title="Histórico" />
-            <AlertText />
+            <AlertText text="Em breve você poderá ver o histórico dos seus hábitos aqui!" />
             <Menu />
         </Wrapper>
     )

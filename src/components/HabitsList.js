@@ -1,4 +1,4 @@
-import Habit from "./Habit";
+import CreatedHabit from "./CreatedHabit";
 import { useContext, useEffect } from "react";
 import UserContext from "../contexts/UserContext";
 import { getHabits } from "../api/API";
@@ -15,9 +15,15 @@ export default function HabitsList({screen}) {
 
     return (
         <>
-            {habitsList.length == 0 && screen === "Habits" 
+            {habitsList.length == 0
                 ? <AlertText text="Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a trackear!" /> 
-                : habitsList.map(habit => <Habit key={habit.id} screen={screen} id={habit.id} name={habit.name} days={habit.days} />)
+                : habitsList.map(habit => <CreatedHabit 
+                                            key={habit.id} 
+                                            screen={screen} 
+                                            id={habit.id} 
+                                            name={habit.name} 
+                                            days={habit.days} 
+                                        />)
             }
         </>
     )

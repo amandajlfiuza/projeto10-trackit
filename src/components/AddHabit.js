@@ -29,15 +29,6 @@ export default function AddHabit() {
                     setHabitsList(resp.data);
                 });
                 setAddHabit({name: '', days: []});
-                setDaysSelected([
-                    {day: 1, weekday:'D', selected:false},
-                    {day: 2, weekday:'S', selected:false},
-                    {day: 3, weekday:'T', selected:false},
-                    {day: 4, weekday:'Q', selected:false},
-                    {day: 5, weekday:'Q', selected:false},
-                    {day: 6, weekday:'S', selected:false},
-                    {day: 7, weekday:'S', selected:false},
-                  ]);
                 setIsDisabled(false);
             })
             .catch((error) => {
@@ -69,7 +60,7 @@ export default function AddHabit() {
             <AddWeekdays container="AddHabit" />
             <Buttons>
                 <CancelButton onClick={cancelHabit}>Cancelar</CancelButton>
-                <SaveButton onClick={submitHabit}>
+                <SaveButton onClick={submitHabit} disabled={isDisabled}> 
                     {isDisabled ? <ThreeDots color='white' height={11} width={43} /> : 'Salvar'}
                 </SaveButton>
             </Buttons>

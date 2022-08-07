@@ -1,5 +1,3 @@
-import { useContext, useEffect, useState } from 'react';
-import UserContext from '../contexts/UserContext';
 import {WeekdaysWrapper, WeekdayContainer} from '../styles/WeekdaysWrapper';
 
 function Weekday({weekday, isSelected, container}) {
@@ -8,9 +6,16 @@ function Weekday({weekday, isSelected, container}) {
     )
 }
 
-
 export default function DisplayWeekdays({days, container}) {
-    const { daysSelected } = useContext(UserContext);
+    const daysSelected = [
+        {day: 0, weekday:'D'},
+        {day: 1, weekday:'S'},
+        {day: 2, weekday:'T'},
+        {day: 3, weekday:'Q'},
+        {day: 4, weekday:'Q'},
+        {day: 5, weekday:'S'},
+        {day: 6, weekday:'S'},
+    ];
 
     return (
         <WeekdaysWrapper>

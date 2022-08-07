@@ -12,20 +12,12 @@ export default function App() {
   const [token, setToken] = useState('');
   const [image, setImage] = useState('');
   const [habitsList, setHabitsList] = useState([]);
+  const [habitsToday, setHabitsToday] = useState([]);
   const [addIsVisible, setAddIsVisible] = useState(false);
   const [addHabit, setAddHabit] = useState({name: '', days: []});
-  const [daysSelected, setDaysSelected] = useState([
-    {day: 1, weekday:'D', selected:false},
-    {day: 2, weekday:'S', selected:false},
-    {day: 3, weekday:'T', selected:false},
-    {day: 4, weekday:'Q', selected:false},
-    {day: 5, weekday:'Q', selected:false},
-    {day: 6, weekday:'S', selected:false},
-    {day: 7, weekday:'S', selected:false},
-  ]);
 
   return (
-    <UserContext.Provider value={{form, setForm, token, setToken, image, setImage, habitsList, setHabitsList, addIsVisible, setAddIsVisible, addHabit, setAddHabit, daysSelected, setDaysSelected}}>
+    <UserContext.Provider value={{form, setForm, token, setToken, image, setImage, habitsList, setHabitsList, habitsToday, setHabitsToday, addIsVisible, setAddIsVisible, addHabit, setAddHabit}}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login />} />
