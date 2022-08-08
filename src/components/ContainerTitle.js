@@ -8,7 +8,8 @@ export default function ContainerTitle({screen, title}) {
     const { addIsVisible, setAddIsVisible, habitsToday, percentageHabitsDone, setPercentageHabitsDone } = useContext(UserContext);
 
     const habitsDone = habitsToday.length === 0 ? [] : habitsToday.map(habit => habit.done).filter(done => done === true);
-    setPercentageHabitsDone(Math.floor(((habitsDone.length)/(habitsToday.length))*100));
+
+    setPercentageHabitsDone(habitsToday.length === 0 ? 0 : Math.floor(((habitsDone.length)/(habitsToday.length))*100));
 
     let weekday = dayjs().locale('pt-br').format('dddd');
     const date = dayjs().locale('pt-br').format('DD/MM');
