@@ -2,7 +2,7 @@ import dayjs from 'dayjs';
 import { useContext, useEffect } from 'react';
 import UserContext from '../contexts/UserContext';
 import {TitleWrapper, Title, AddButton, Subtitle} from '../styles/TitleWrapper';
-require('dayjs/locale/pt-br');
+import 'dayjs/locale/pt-br';
 
 export default function ContainerTitle({screen, title}) {
     const { addIsVisible, setAddIsVisible, habitsToday, percentageHabitsDone, setPercentageHabitsDone } = useContext(UserContext);
@@ -11,9 +11,6 @@ export default function ContainerTitle({screen, title}) {
     setPercentageHabitsDone(Math.floor(((habitsDone.length)/(habitsToday.length))*100));
 
     const data = dayjs().locale('pt-br').format('dddd, DD/MM');
-    useEffect(() => {
-        console.log(data);
-    }, [])
 
     return (
         <TitleWrapper screen={screen}>

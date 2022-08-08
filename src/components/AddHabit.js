@@ -29,6 +29,15 @@ export default function AddHabit() {
                     setHabitsList(resp.data);
                 });
                 setAddHabit({name: '', days: []});
+                setDaysSelected([
+                    {day: 0, weekday:'D', selected:false},
+                    {day: 1, weekday:'S', selected:false},
+                    {day: 2, weekday:'T', selected:false},
+                    {day: 3, weekday:'Q', selected:false},
+                    {day: 4, weekday:'Q', selected:false},
+                    {day: 5, weekday:'S', selected:false},
+                    {day: 6, weekday:'S', selected:false},
+                  ]);
                 setIsDisabled(false);
             })
             .catch((error) => {

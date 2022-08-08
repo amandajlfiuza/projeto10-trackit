@@ -1,10 +1,10 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import UserContext from '../contexts/UserContext';
 import {WeekdaysWrapper, WeekdayContainer} from '../styles/WeekdaysWrapper';
 
-function Weekday({daysSelected, dayId, weekday, container}) {
-    const [isSelected, setIsSelected] = useState(false);
-    const { addHabit, setAddHabit } = useContext(UserContext);
+function Weekday({selected, dayId, weekday, container}) {
+    const [isSelected, setIsSelected] = useState(selected);
+    const { addHabit, setAddHabit, daysSelected } = useContext(UserContext);
 
     function selectWeekday() {
         if (!isSelected) {
@@ -43,22 +43,14 @@ function Weekday({daysSelected, dayId, weekday, container}) {
 }
 
 export default function AddWeekdays({container}) {
-    const daysSelected = [
-        {day: 0, weekday:'D'},
-        {day: 1, weekday:'S'},
-        {day: 2, weekday:'T'},
-        {day: 3, weekday:'Q'},
-        {day: 4, weekday:'Q'},
-        {day: 5, weekday:'S'},
-        {day: 6, weekday:'S'},
-    ];
+    const {daysSelected} = useContext(UserContext);
 
     return (
         <WeekdaysWrapper>
             {daysSelected.map((value, index) => 
                 (<Weekday 
                     key={index} 
-                    daysSelected={daysSelected}
+                    selected={value.selected}
                     dayId={value.day} 
                     weekday={value.weekday} 
                     container={container}
