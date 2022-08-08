@@ -33,12 +33,12 @@ function getHabitsToday(token) {
 }
 
 function postCheckHabit(idHabit, token) {
-    const promise = axios.delete(`${BASE_URL}/habits/${idHabit}/check`, token);
+    const promise = axios.post(`${BASE_URL}/habits/${idHabit}/check`, {}, token);
     return promise;
 }
 
 function postUncheckHabit(idHabit, token) {
-    const promise = axios.delete(`${BASE_URL}/habits/${idHabit}/uncheck`, token);
+    const promise = axios.post(`${BASE_URL}/habits/${idHabit}/uncheck`, {}, token);
     return promise;
 }
 

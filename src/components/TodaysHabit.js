@@ -13,8 +13,25 @@ export default function TodaysHabit({screen, id, name, done, currentSequence, hi
 
     const { token, setHabitsToday } = useContext(UserContext);
 
+    function checkHabit() {
+        if (!done) {
+            postCheckHabit(id, token).then((resp) => {
+                setHabitsToday(resp.data);
+            })
+            .catch((error) => {
+                postUncheckHabit(id, token).then((resp) => {
+                    setHabitsToday(resp.data);
+                })
+            })
+        } else {
+            postUncheckHabit(id, token).then((resp) => {
+                setHabitsToday(resp.data);
+            })
+        }
+    }
+
     return (
-        <HabitContainer>
+        <HabitContainer onClick={checkHabit}>
             <HabitName>{name}</HabitName>
             <CurrentSequence>
                 <Subtitle screen={screen}>Sequência atual: </Subtitle>
@@ -22,7 +39,10 @@ export default function TodaysHabit({screen, id, name, done, currentSequence, hi
             </CurrentSequence>
             <Record>
                 <Subtitle screen={screen}>Seu recorde: </Subtitle>
-                <Sequence screen={screen} done={done}>{`${highestSequence} dias`}</Sequence>
+                <Sequence 
+                    screen={screen} 
+                    done={highestSequence >= currentSequence ? done : ''}
+                >{`${highestSequence} dias`}</Sequence>
             </Record>
             <CheckIcon screen={screen} done={done}>
                 <img src='./assets/CheckIcon.svg' />

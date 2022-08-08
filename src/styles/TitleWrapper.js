@@ -40,7 +40,7 @@ const AddButton = styled.button`
 `;
 
 const Subtitle = styled.div`
-    color: #BABABA;
+    color: ${props => props.done ? '#8FC549' : '#BABABA'};
     font-size: 18px;
 
     ${props => {

@@ -10,7 +10,7 @@ export default function HabitsToday({screen}) {
         getHabitsToday(token).then((resp) => {
             setHabitsToday(resp.data);
         });
-    }, []);
+    }, [habitsToday]);
 
     return (
         <>

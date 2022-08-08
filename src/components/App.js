@@ -15,9 +15,10 @@ export default function App() {
   const [habitsToday, setHabitsToday] = useState([]);
   const [addIsVisible, setAddIsVisible] = useState(false);
   const [addHabit, setAddHabit] = useState({name: '', days: []});
+  const [percentageHabitsDone, setPercentageHabitsDone] = useState('');
 
   return (
-    <UserContext.Provider value={{form, setForm, token, setToken, image, setImage, habitsList, setHabitsList, habitsToday, setHabitsToday, addIsVisible, setAddIsVisible, addHabit, setAddHabit}}>
+    <UserContext.Provider value={{form, setForm, token, setToken, image, setImage, habitsList, setHabitsList, habitsToday, setHabitsToday, addIsVisible, setAddIsVisible, addHabit, setAddHabit, percentageHabitsDone, setPercentageHabitsDone}}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login />} />

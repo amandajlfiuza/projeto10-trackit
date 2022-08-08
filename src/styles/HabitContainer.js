@@ -48,7 +48,7 @@ const Subtitle = styled.span`
 `;
 
 const Sequence = styled.span`
-    color: #666666;
+    color: ${props => props.done ? '#8FC549' : '#666666'};
     font-size: 13px;
 
     ${props => {
@@ -69,7 +69,7 @@ const CheckIcon = styled.div`
     height: 64px;
     border-radius: 5px;
     border: 1px solid #E7E7E7;
-    background-color: #EBEBEB;
+    background-color: ${props => props.done ? '#8FC549' : '#EBEBEB'};
     display: flex;
     justify-content: center;
     align-items: center;

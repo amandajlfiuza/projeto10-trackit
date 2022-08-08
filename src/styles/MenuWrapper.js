@@ -34,17 +34,27 @@ const Button = styled.div`
 const Performance = styled.div`
     width: 91px;
     height: 91px;
+    padding: 6px;
     border-radius: 50%;
     background-color: #52B6FF;
-    color: white;
-    font-size: 18px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    
     position: absolute;
     bottom: 10px;
     left: calc(50% - 45.5px);
     z-index: 2;
+
+    div {
+        width: 91px;
+        height: 91px;
+        color: white;
+        font-size: 18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+    }
 `;
 
 export {MenuWrapper, Background, Button, Performance};
