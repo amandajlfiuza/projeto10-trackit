@@ -2,7 +2,7 @@ import dayjs from 'dayjs';
 import { useContext, useEffect } from 'react';
 import UserContext from '../contexts/UserContext';
 import {TitleWrapper, Title, AddButton, Subtitle} from '../styles/TitleWrapper';
-import 'dayjs/locale/pt-br';
+import renderFullDate from '../utils/functions';
 
 export default function ContainerTitle({screen, title}) {
     const { addIsVisible, setAddIsVisible, habitsToday, percentageHabitsDone, setPercentageHabitsDone } = useContext(UserContext);
@@ -10,12 +10,15 @@ export default function ContainerTitle({screen, title}) {
     const habitsDone = habitsToday.length === 0 ? [] : habitsToday.map(habit => habit.done).filter(done => done === true);
     setPercentageHabitsDone(Math.floor(((habitsDone.length)/(habitsToday.length))*100));
 
-    const data = dayjs().locale('pt-br').format('dddd, DD/MM');
+    let weekday = dayjs().locale('pt-br').format('dddd');
+    const date = dayjs().locale('pt-br').format('DD/MM');
+
+    let fullDate = renderFullDate(weekday, date);
 
     return (
         <TitleWrapper screen={screen}>
             <Title>
-                {screen==='Habits'||screen==="History" ? title : data}
+                {screen==='Habits'||screen==="History" ? title : fullDate}
             </Title>
             <AddButton 
                 screen={screen} 
